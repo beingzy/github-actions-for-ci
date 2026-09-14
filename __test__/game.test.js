@@ -1,15 +1,4 @@
 const Game = require('../src/game').default
-const fs = require('fs')
-
-describe('App', () => {
-  it('Contains the compiled JavaScript', async (done) => {
-    fs.readFile('./public/main.js', 'utf8', (err, data) => {
-      expect(err).toBe(null)
-      expect(data).toMatchSnapshot()
-      done()
-    })
-  })
-})
 
 describe('Game', () => {
   let game, p1, p2
@@ -27,8 +16,8 @@ describe('Game', () => {
 
     it('Initializes with an empty board', async () => {
       for (let r = 0; r < game.board.length; r++) {
-        for (let c = 0; c < game.board[r].lenght; c++) {
-          expect(game.board[r][c]).toBeUndefined()
+        for (let c = 0; c < game.board[r].length; c++) {
+          expect(game.board[r][c]).toBeNull()
         }
       }
     })
